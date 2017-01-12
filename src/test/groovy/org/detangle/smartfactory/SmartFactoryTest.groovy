@@ -1,4 +1,4 @@
-package com.vmc.smartfactory
+package org.detangle.smartfactory
 
 import org.apache.commons.lang.StringUtils
 import org.junit.Before
@@ -36,10 +36,10 @@ class SmartFactoryTest {
 
     @Test
     def void "Get instances of classes configured for a single class"(){
-        smartFactory.configurationFor("com.vmc.smartfactory.SmartFactoryTest").put(String, "ok")
-        smartFactory.configurationFor("com.vmc.smartfactory.SmartFactoryTest").put(Integer, 1)
+        smartFactory.configurationFor("org.detangle.smartfactory.SmartFactoryTest").put(String, "ok")
+        smartFactory.configurationFor("org.detangle.smartfactory.SmartFactoryTest").put(Integer, 1)
         def someMap = [:]
-        smartFactory.configurationFor("com.vmc.smartfactory.SmartFactoryTest").put(Map, someMap)
+        smartFactory.configurationFor("org.detangle.smartfactory.SmartFactoryTest").put(Map, someMap)
         def testCases = [[class:String, expectedResult: "ok"],
                          [class:Integer, expectedResult: 1],
                          [class:Map, expectedResult: someMap]]
@@ -51,7 +51,7 @@ class SmartFactoryTest {
 
     @Test
     def void "Get instances of a class with broad configuration"(){
-        smartFactory.configurationFor("com.**").put(String, "ok")
+        smartFactory.configurationFor("org.detangle.**").put(String, "ok")
         smartFactory.configurationFor("java.**").put(String, "fine")
         assert smartFactory.instanceForCallerOf(SmartFactoryTest, String) == "ok"
         assert smartFactory.instanceForCallerOf(Integer, String) == "fine"
@@ -60,10 +60,10 @@ class SmartFactoryTest {
 
     @Test
     def void "Get instances of classes using two different configurations"(){
-        smartFactory.configurationFor("com.vmc.smartfactory.SmartFactoryTest").put(String, "ok")
-        smartFactory.configurationFor("com.vmc.smartfactory.SmartFactoryTest").put(Integer, 1)
+        smartFactory.configurationFor("org.detangle.smartfactory.SmartFactoryTest").put(String, "ok")
+        smartFactory.configurationFor("org.detangle.smartfactory.SmartFactoryTest").put(Integer, 1)
         def someMap = [:]
-        smartFactory.configurationFor("com.vmc.smartfactory.SmartFactoryTest").put(Map, someMap)
+        smartFactory.configurationFor("org.detangle.smartfactory.SmartFactoryTest").put(Map, someMap)
         def testCases = [[class:String, expectedResult: "ok"],
                          [class:Integer, expectedResult: 1],
                          [class:Map, expectedResult: someMap]]
@@ -76,7 +76,7 @@ class SmartFactoryTest {
     @Test
     def void "Get instances of a class configured with a closure"(){
         def numberStream = [1,2,3].iterator()
-        smartFactory.configurationFor("com.**").put(Integer, {return numberStream.next()})
+        smartFactory.configurationFor("org.**").put(Integer, {return numberStream.next()})
         assert smartFactory.instanceForCallerOf(SmartFactoryTest, Integer) == 1
         assert smartFactory.instanceForCallerOf(SmartFactoryTest, Integer) == 2
         assert smartFactory.instanceForCallerOf(SmartFactoryTest, Integer) == 3

@@ -4,7 +4,7 @@
 
     <groupId>com.vmc.smartFactory</groupId>
     <artifactId>SmartFactory</artifactId>
-    <version>0.5-SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>SmartFactory</name>
@@ -16,9 +16,35 @@
         <junit.version>4.12</junit.version>
     </properties>
 
-    <!-- Package as an executable jar -->
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>com.bluetrainsoftware.maven</groupId>
+                <artifactId>groovydoc-maven-plugin</artifactId>
+                <version>1.3</version>
+                <executions>
+                    <execution>
+                        <id>attach-docs</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-docs</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
