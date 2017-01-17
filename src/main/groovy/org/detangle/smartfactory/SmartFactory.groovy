@@ -1,6 +1,6 @@
 package org.detangle.smartfactory
 
-//TODO shouldn't use sun, but I could'nt find better API for glob
+//TODO shouldn't use sun, but I couldn't find better API for glob
 import sun.nio.fs.Globs
 
 /**

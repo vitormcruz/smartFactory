@@ -3,12 +3,29 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.vmc.smartFactory</groupId>
-    <artifactId>SmartFactory</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <artifactId>smartFactory</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>SmartFactory</name>
+    <name>Smart Factory</name>
 
+    <description>TODO</description>
+
+    <url>https://github.com/vitormcruz/smartFactory</url>
+
+    <scm>
+        <connection>scm:git:https://github.com/vitormcruz/smartFactory.git</connection>
+        <developerConnection>scm:git:https://github.com/vitormcruz/smartFactory.git</developerConnection>
+        <url>https://github.com/vitormcruz/smartFactory</url>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
