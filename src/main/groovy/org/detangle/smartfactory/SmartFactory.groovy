@@ -20,6 +20,10 @@ class SmartFactory {
         return configuration?.get(aClass)?.call()
     }
 
+    def configuration(){
+        return configurationFor("**")
+    }
+
     def Configuration configurationFor(String glob) {
         def regexGlob = Globs.toUnixRegexPattern(glob)
         def configuration = configurations.get(regexGlob)

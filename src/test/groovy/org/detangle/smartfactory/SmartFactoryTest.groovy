@@ -24,6 +24,11 @@ class SmartFactoryTest {
     }
 
     @Test
+    def void "Test configuration() is alias to smartFactory.configurationFor(**)"(){
+        assert smartFactory.configuration().is(smartFactory.configurationFor("**"))
+    }
+
+    @Test
     def void "Get instances of classes not configured must return null"(){
         def testCases = [[class:String, expectedResult: null],
                          [class:Integer, expectedResult: null],
